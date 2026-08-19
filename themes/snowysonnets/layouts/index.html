@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="home-hero">
+  <img class="home-bg" src="{{ "img/start.png" | relURL }}" alt="SnowySonnets 首页背景">
+  <div class="home-content">
+    <h1>{{ site.Params.homeTitle }}</h1>
+    <p>{{ site.Params.homeSubtitle }}</p>
+    <a class="btn" href="{{ "/posts/" | relURL }}">{{ site.Params.enterLibrary }}</a>
+  </div>
+</section>
+{{ end }}

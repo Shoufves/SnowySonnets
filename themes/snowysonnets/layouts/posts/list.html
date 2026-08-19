@@ -1,0 +1,70 @@
+{{ define "main" }}
+{{ if eq .File.Path "posts/_index.md" }}
+<section class="library" id="library">
+  <div class="deco deco-left">
+    <div class="speech-bubble"><span>今天想要看什么呢？</span></div>
+    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物">
+  </div>
+
+  <div class="library-shell">
+    <aside class="directory-pane" id="directory-pane">
+      <div class="breadcrumb" id="breadcrumb" aria-live="polite"></div>
+      <div class="directory-header">全部文章</div>
+      <nav class="tree" id="tree" aria-label="文章目录">
+        {{ partial "tree.html" (site.GetPage "/posts") }}
+      </nav>
+    </aside>
+
+    <section class="article-pane" id="article-pane" aria-live="polite">
+      <div class="article-welcome" id="article-welcome">
+        <p>{{ site.Params.libraryWelcome }}</p>
+        <img class="little-es" src="{{ "img/little_Es1.png" | relURL }}" alt="little Es">
+      </div>
+      <div class="article-view" id="article-view" hidden>
+        <div class="article-topbar" id="article-topbar">
+          <button class="back-btn" id="back-btn" type="button" aria-label="返回目录">← 返回</button>
+          <div class="breadcrumb" id="article-breadcrumb" aria-live="polite"></div>
+        </div>
+        <article id="article-body" class="article-body"></article>
+      </div>
+    </section>
+  </div>
+
+  <div class="deco deco-right">
+    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物">
+  </div>
+</section>
+{{ else }}
+<section class="category-page">
+  <div class="deco deco-left"><img class="little-es" src="{{ "img/little_Es2.png" | relURL }}" alt="little Es"></div>
+  <div class="category-panel paper-panel">
+    <nav class="breadcrumb">
+      <a href="{{ "/posts/" | relURL }}">文章库</a> / <span>{{ .Title }}</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
+    {{ with .Sections }}
+    <h2>子分类</h2>
+    <ul class="plain-list">
+      {{ range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+    <h2>文章</h2>
+    <ul class="article-list">
+      {{ range .RegularPagesRecursive }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  <div class="deco deco-right"><img class="little-es" src="{{ "img/little_Es4.png" | relURL }}" alt="little Es"></div>
+</section>
+{{ end }}
+{{ end }}
+{{ define "scripts" }}
+<script src="{{ "js/library.js" | relURL }}" defer></script>
+{{ end }}

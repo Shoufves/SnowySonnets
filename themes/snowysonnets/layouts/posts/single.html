@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="single-page">
+  <div class="deco deco-left">
+    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物">
+  </div>
+  <article class="article-body paper-panel" id="article-body">
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      <div class="meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.tags }}
+        <span class="tags">
+          {{ range . }}<a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
+        </span>
+        {{ end }}
+      </div>
+    </header>
+    <div class="content">
+      {{ .Content }}
+    </div>
+    <div class="post-back">
+      <a href="{{ "/posts/" | relURL }}">← 返回文章库</a>
+    </div>
+  </article>
+  <div class="deco deco-right">
+    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物">
+  </div>
+</section>
+{{ end }}

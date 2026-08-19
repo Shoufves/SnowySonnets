@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="page paper-panel search-page">
+  <h1>搜索</h1>
+  <input type="search" id="search-input" placeholder="输入关键词搜索文章…" autocomplete="off">
+  <div id="search-results" class="search-results"></div>
+</section>
+{{ end }}
+{{ define "scripts" }}
+<script id="search-data" type="application/json">{{ partial "search-data.html" . | safeJS }}</script>
+<script src="{{ "js/search.js" | relURL }}" defer></script>
+{{ end }}

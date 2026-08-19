@@ -1,0 +1,16 @@
+<header class="site-header">
+  <nav class="site-nav" aria-label="主导航">
+    <a class="brand" href="{{ "/" | relURL }}">SnowySonnets</a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{{ "/" | relURL }}">首页</a></li>
+      <li><a href="{{ "/posts/" | relURL }}">文章库</a></li>
+      <li><a href="{{ "/categories/" | relURL }}">分类</a></li>
+      <li><a href="{{ "/tags/" | relURL }}">标签</a></li>
+      <li><a href="{{ "/search/" | relURL }}">搜索</a></li>
+      <li><a href="{{ "/about/" | relURL }}">关于</a></li>
+    </ul>
+  </nav>
+</header>

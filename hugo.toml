@@ -1,0 +1,26 @@
+# SnowySonnets Hugo 配置
+baseURL = 'https://shoufves.github.io/SnowySonnets/'
+languageCode = 'zh-cn'
+title = 'SnowySonnets'
+theme = 'snowysonnets'
+enableRobotsTXT = true
+enableEmoji = true
+paginate = 10
+summaryLength = 80
+defaultContentLanguage = 'zh-cn'
+
+[params]
+  author = 'SnowySonnets'
+  description = '一个黑白灰古典二次元风格的个人文章站'
+  homeTitle = 'SnowySonnets'
+  homeSubtitle = '在书柜与文字之间，收藏属于你的故事。'
+  enterLibrary = '进入文章库'
+  libraryWelcome = '请选择左侧目录中的一篇文章'
+
+[taxonomies]
+  tag = 'tags'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

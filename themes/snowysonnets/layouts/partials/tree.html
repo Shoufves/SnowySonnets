@@ -1,0 +1,20 @@
+{{ $section := . }}
+<ul class="tree-list">
+  {{ range $section.Sections }}
+  <li class="tree-item tree-dir" data-title="{{ .Title }}">
+    <div class="tree-row dir-row" role="button" tabindex="0" aria-expanded="false">
+      <span class="tree-arrow" aria-hidden="true">&gt;</span>
+      <span class="tree-label">{{ .Title }}</span>
+    </div>
+    {{ partial "tree.html" . }}
+  </li>
+  {{ end }}
+  {{ range $section.RegularPages }}
+  <li class="tree-item tree-file" data-title="{{ .Title }}">
+    <a class="tree-row file-row" href="{{ .RelPermalink }}">
+      <span class="tree-file-icon" aria-hidden="true">-</span>
+      <span class="tree-label">{{ .Title }}</span>
+    </a>
+  </li>
+  {{ end }}
+</ul>

@@ -1,0 +1,7 @@
+{{ $dest := .Destination }}
+{{ if not (urls.Parse $dest).Scheme }}
+  {{ if hasPrefix $dest "/" }}
+    {{ $dest = $dest | relURL }}
+  {{ end }}
+{{ end }}
+<a href="{{ $dest | safeURL }}" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

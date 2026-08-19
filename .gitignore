@@ -1,0 +1,10 @@
+# Hugo 构建产物
+/public/
+/resources/_gen/
+
+# 编辑器/系统文件
+.DS_Store
+Thumbs.db
+*.swp
+
+需求文档.md

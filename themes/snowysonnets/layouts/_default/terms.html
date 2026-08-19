@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="page paper-panel">
+  <h1>{{ .Title }}</h1>
+  <div class="term-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a class="term" href="{{ .Page.RelPermalink }}">
+      {{ .Page.Title }}
+      <span class="term-count">{{ .Count }}</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

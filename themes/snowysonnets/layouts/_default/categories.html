@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="page paper-panel">
+  <h1>分类</h1>
+  <p>分类由文章库的目录结构自动生成。</p>
+  <div class="category-grid">
+    {{ $posts := site.GetPage "/posts" }}
+    {{ range $posts.Sections }}
+    <a class="category-card" href="{{ .RelPermalink }}">
+      <h2>{{ .Title }}</h2>
+      <span>{{ len .RegularPagesRecursive }} 篇文章</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

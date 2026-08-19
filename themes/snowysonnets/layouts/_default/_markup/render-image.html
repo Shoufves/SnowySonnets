@@ -1,0 +1,8 @@
+{{ $dest := .Destination }}
+{{ if and (not (urls.Parse $dest).Scheme) (hasPrefix $dest "/") }}
+  {{ $dest = $dest | relURL }}
+{{ end }}
+<figure class="md-image">
+  <img src="{{ $dest | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
+  {{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
