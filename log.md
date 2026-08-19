@@ -134,3 +134,8 @@
 
 - 进入文章库 404 的根因：使用 `"/posts/" | relURL` 时生成了不带子路径的根路径链接，导致跳到 GitHub 根域名的 404；已改为 `(site.GetPage "/posts").RelPermalink`。
 - 404 页面看起来“未个性化”，是因为当时落在 GitHub 根域名的默认 404 上，而不是本站 `/SnowySonnets/` 下的自定义 404。
+
+## 2026-01-01 空白页修复尝试
+
+- 用户反馈 `/posts/` 页面源码几乎为空。
+- 将 `posts/list.html`、`search.html`、`404.html` 改为单 `define "main"` 结构，脚本直接放入 main 内容中，避免多 `define` 可能导致的空输出问题。

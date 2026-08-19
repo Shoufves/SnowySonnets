@@ -3,9 +3,7 @@
   <h1 class="error-text">哎呀……旅人，这是什么地方？</h1>
   <img class="error-character" src="{{ "img/little_Es5.png" | relURL }}" alt="little Es">
   <div class="error-bubbles" id="error-bubbles" aria-hidden="true"></div>
-  <a class="btn" href="{{ "/" | relURL }}">返回首页</a>
+  <a class="btn" href="{{ site.Home.RelPermalink }}">返回首页</a>
 </section>
-{{ end }}
-{{ define "scripts" }}
 <script src="{{ "js/404.js" | relURL }}" defer></script>
 {{ end }}
