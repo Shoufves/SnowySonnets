@@ -315,6 +315,19 @@ h3,
   justify-content: flex-end;
 }
 
+/* 左侧 Es 更大，右侧 Es 略大 */
+.library .deco-left img {
+  height: 60vh;
+  max-width: none;
+  width: auto;
+}
+
+.library .deco-right img {
+  height: 50vh;
+  max-width: none;
+  width: auto;
+}
+
 .speech-bubble {
   position: absolute;
   top: 4%;
@@ -639,12 +652,49 @@ h3,
   opacity: 1;
 }
 
-/* 桌面端：文章打开后目录更大幅度左移，让文章区获得更多空间 */
+/* 桌面端：文章库为居中的“手机尺寸”双面板 */
 @media (min-width: 1024px) {
-  .library.article-open .directory-pane {
-    margin-left: -140px;
-    transform: translateX(-20px);
+  .library {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .library-shell {
+    flex: 0 0 auto;
+    width: 360px;
+    margin: 0 auto;
+    gap: 20px;
+    transition: width var(--duration) var(--ease);
+  }
+
+  .library .directory-pane {
+    width: 360px;
+    max-height: calc(100vh - 160px);
+  }
+
+  .library .article-pane {
+    width: 0;
+    flex: 0 0 0;
+    max-height: calc(100vh - 160px);
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: width var(--duration) var(--ease), opacity var(--duration) var(--ease), padding var(--duration) var(--ease);
+  }
+
+  .library.article-open .library-shell {
+    width: 740px;
+  }
+
+  .library.article-open .article-pane {
+    width: 360px;
+    flex-basis: 360px;
+    padding: 26px;
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -899,10 +949,6 @@ h3,
     min-height: 90px;
     font-size: 14px;
     padding: 20px 12px 26px;
-  }
-
-  .directory-pane {
-    width: 320px;
   }
 }
 
