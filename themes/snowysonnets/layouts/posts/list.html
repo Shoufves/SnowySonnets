@@ -1,18 +1,18 @@
 {{ define "main" }}
 {{ if eq .File.Path "posts/_index.md" }}
 <section class="library" id="library">
-  <img class="book-bg" src="{{ "img/book.png" | relURL }}" alt="" aria-hidden="true">
+  <img class="book-bg" src="{{ "img/book.png" | relURL }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="mobile-little mobile-little-left" aria-hidden="true">
     <div class="mini-bubble">今天想要看什么呢？</div>
-    <img src="{{ "img/little_Es2.png" | relURL }}" alt="">
+    <img src="{{ "img/little_Es2.png" | relURL }}" alt="" loading="lazy" decoding="async">
   </div>
   <div class="mobile-little mobile-little-right" aria-hidden="true">
     <div class="mini-bubble mini-bubble-right">这里很安静。<br>只有我们两个哦……</div>
-    <img src="{{ "img/little_Es3.png" | relURL }}" alt="">
+    <img src="{{ "img/little_Es3.png" | relURL }}" alt="" loading="lazy" decoding="async">
   </div>
   <div class="deco deco-left">
     <div class="speech-bubble"><span>今天想要看什么呢？</span></div>
-    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物">
+    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物" loading="lazy" decoding="async">
   </div>
 
   <div class="library-shell">
@@ -27,7 +27,7 @@
     <section class="article-pane" id="article-pane" aria-live="polite">
       <div class="article-welcome" id="article-welcome">
         <p>{{ site.Params.libraryWelcome }}</p>
-        <img class="little-es" src="{{ "img/little_Es1.png" | relURL }}" alt="little Es">
+        <img class="little-es" src="{{ "img/little_Es1.png" | relURL }}" alt="little Es" loading="lazy" decoding="async">
       </div>
       <div class="article-view" id="article-view" hidden>
         <div class="article-topbar" id="article-topbar">
@@ -41,12 +41,12 @@
 
   <div class="deco deco-right">
     <div class="speech-bubble speech-bubble-right"><span>这里很安静。<br>只有我们两个哦……</span></div>
-    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物">
+    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物" loading="lazy" decoding="async">
   </div>
 </section>
 {{ else }}
 <section class="category-page">
-  <div class="deco deco-left"><img class="little-es" src="{{ "img/little_Es2.png" | relURL }}" alt="little Es"></div>
+  <div class="deco deco-left"><img class="little-es" src="{{ "img/little_Es2.png" | relURL }}" alt="little Es" loading="lazy" decoding="async"></div>
   <div class="category-panel paper-panel">
     <button class="back-btn" type="button" onclick="history.back()">← 返回</button>
     <nav class="breadcrumb">
@@ -72,7 +72,7 @@
       {{ end }}
     </ul>
   </div>
-  <div class="deco deco-right"><img class="little-es" src="{{ "img/little_Es4.png" | relURL }}" alt="little Es"></div>
+  <div class="deco deco-right"><img class="little-es" src="{{ "img/little_Es4.png" | relURL }}" alt="little Es" loading="lazy" decoding="async"></div>
 </section>
 {{ end }}
 <script src="{{ "js/library.js" | relURL }}" defer></script>

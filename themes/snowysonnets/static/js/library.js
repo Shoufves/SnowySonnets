@@ -222,6 +222,21 @@
     backBtn.addEventListener("click", closeArticle);
   }
 
+  // 文章内的“上一篇/下一篇”也在文章库内无刷新切换
+  if (articlePane) {
+    articlePane.addEventListener("click", function (e) {
+      var navLink = e.target.closest(".post-nav a");
+      if (navLink) {
+        e.preventDefault();
+        if (isMobile() && rootList) {
+          returnList = tree.querySelector(".tree-list.active") || rootList;
+        }
+        var titleEl = navLink.textContent.replace(/^[←→\s]+|[←→\s]+$/g, "").trim();
+        openArticle(navLink.href, titleEl);
+      }
+    });
+  }
+
   // 移动端：文章界面右滑返回目录
   if (articlePane) {
     articlePane.addEventListener(

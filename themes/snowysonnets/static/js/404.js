@@ -13,11 +13,11 @@
   var vh = window.innerHeight;
   var BASE_SIZE = Math.min(220, Math.max(110, vw * 0.22));
 
-  // 保护文字区域与 little_Es5 / little_Es1 所在区域
+  // 只保护文字本体和 little_Es 本体的小范围区域，其余位置均可等概率生成
   function inProtectedZone(x, y, w, h) {
     var zones = [
-      { left: vw * 0.2, right: vw * 0.8, top: vh * 0.05, bottom: vh * 0.2 },
-      { left: vw * 0.32, right: vw * 0.68, top: vh * 0.32, bottom: vh * 0.62 }
+      { left: vw * 0.3, right: vw * 0.7, top: vh * 0.08, bottom: vh * 0.16 },
+      { left: vw * 0.42, right: vw * 0.58, top: vh * 0.38, bottom: vh * 0.55 }
     ];
     for (var i = 0; i < zones.length; i++) {
       var z = zones[i];
