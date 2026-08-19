@@ -2,8 +2,11 @@
 <section class="home-hero">
   <img class="home-bg" src="{{ "img/start-opt.jpg" | relURL }}" alt="SnowySonnets 首页背景" fetchpriority="high">
   <div class="home-content">
-    <h1>{{ site.Params.homeTitle }}</h1>
-    <p>{{ site.Params.homeSubtitle }}</p>
+    <h1>SnowySonnets</h1>
+    <p class="home-site-name">月融雪Snowmelt的文章存储站</p>
+    <p class="home-subtitle">在书柜与文字之间，收藏属于你的故事。</p>
+    <p class="home-welcome">——欢迎回来，旅人。</p>
+    <img class="home-little-es" src="{{ "img/little_Es4.png" | relURL }}" alt="little Es">
     <a class="btn" href="{{ (site.GetPage "/posts").RelPermalink }}">{{ site.Params.enterLibrary }}</a>
   </div>
 </section>

@@ -1,5 +1,6 @@
 {{ define "main" }}
 <section class="page paper-panel">
+  <button class="back-btn" type="button" onclick="history.back()">← 返回</button>
   <h1>{{ .Title }}</h1>
   <div class="term-cloud">
     {{ range .Data.Terms.Alphabetical }}

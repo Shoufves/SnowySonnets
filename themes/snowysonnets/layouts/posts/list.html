@@ -38,6 +38,7 @@
 <section class="category-page">
   <div class="deco deco-left"><img class="little-es" src="{{ "img/little_Es2.png" | relURL }}" alt="little Es"></div>
   <div class="category-panel paper-panel">
+    <button class="back-btn" type="button" onclick="history.back()">← 返回</button>
     <nav class="breadcrumb">
       <a href="{{ (site.GetPage "/posts").RelPermalink }}">文章库</a> / <span>{{ .Title }}</span>
     </nav>
