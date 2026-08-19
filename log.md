@@ -121,3 +121,16 @@
 
 - 用户反馈 Build 成功但 Deploy 失败。
 - 在 `deploy.yml` 构建阶段新增 `actions/configure-pages@v5`，用于自动启用/配置 GitHub Pages 发布源。
+
+## 2026-01-01 生产问题修复（第一轮）
+
+- 用户反馈：start.png 加载极慢、进入文章库 404、404 页面未个性化。
+- 导航/首页/文章详情链接改为使用 Hugo 页面对象的 `RelPermalink`，避免子路径下 `relURL` 生成错误链接。
+- 首页改用优化后的 `static/img/start-opt.jpg`（1600px 宽、JPEG 质量 80，约 127KB），替代 256KB 的 start.png 作为首屏图。
+
+- 同步修正 `posts/single.html` 和分类详情页的“返回文章库/文章库”链接为 `RelPermalink`。
+
+## 2026-01-01 问题定位补充
+
+- 进入文章库 404 的根因：使用 `"/posts/" | relURL` 时生成了不带子路径的根路径链接，导致跳到 GitHub 根域名的 404；已改为 `(site.GetPage "/posts").RelPermalink`。
+- 404 页面看起来“未个性化”，是因为当时落在 GitHub 根域名的默认 404 上，而不是本站 `/SnowySonnets/` 下的自定义 404。

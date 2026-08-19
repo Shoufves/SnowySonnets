@@ -39,7 +39,7 @@
   <div class="deco deco-left"><img class="little-es" src="{{ "img/little_Es2.png" | relURL }}" alt="little Es"></div>
   <div class="category-panel paper-panel">
     <nav class="breadcrumb">
-      <a href="{{ "/posts/" | relURL }}">文章库</a> / <span>{{ .Title }}</span>
+      <a href="{{ (site.GetPage "/posts").RelPermalink }}">文章库</a> / <span>{{ .Title }}</span>
     </nav>
     <h1>{{ .Title }}</h1>
     {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}

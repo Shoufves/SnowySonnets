@@ -19,7 +19,7 @@
       {{ .Content }}
     </div>
     <div class="post-back">
-      <a href="{{ "/posts/" | relURL }}">← 返回文章库</a>
+      <a href="{{ (site.GetPage "/posts").RelPermalink }}">← 返回文章库</a>
     </div>
   </article>
   <div class="deco deco-right">

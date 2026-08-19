@@ -1,10 +1,10 @@
 {{ define "main" }}
 <section class="home-hero">
-  <img class="home-bg" src="{{ "img/start.png" | relURL }}" alt="SnowySonnets 首页背景">
+  <img class="home-bg" src="{{ "img/start-opt.jpg" | relURL }}" alt="SnowySonnets 首页背景" fetchpriority="high">
   <div class="home-content">
     <h1>{{ site.Params.homeTitle }}</h1>
     <p>{{ site.Params.homeSubtitle }}</p>
-    <a class="btn" href="{{ "/posts/" | relURL }}">{{ site.Params.enterLibrary }}</a>
+    <a class="btn" href="{{ (site.GetPage "/posts").RelPermalink }}">{{ site.Params.enterLibrary }}</a>
   </div>
 </section>
 {{ end }}
