@@ -116,3 +116,8 @@
 - 已检查 Hugo 模板定界符配对：所有 `layouts/**/*.html` 的 `{{` 与 `}}` 数量一致。
 - 当前沙箱环境无法联网安装 Hugo，因此未能执行 `hugo` 本地构建；构建与部署将在 GitHub Actions 中自动完成。
 - 项目结构、主题、示例内容、部署配置均已就绪。
+
+## 2026-01-01 GitHub Actions 部署失败处理
+
+- 用户反馈 Build 成功但 Deploy 失败。
+- 在 `deploy.yml` 构建阶段新增 `actions/configure-pages@v5`，用于自动启用/配置 GitHub Pages 发布源。
