@@ -1,4 +1,14 @@
 {{ define "main" }}
+{{ $sorted := sort (where site.RegularPages "Section" "posts") "Date" "asc" }}
+{{ $current := . }}
+{{ $prev := false }}
+{{ $next := false }}
+{{ range $i, $p := $sorted }}
+  {{ if eq $p.File.Path $current.File.Path }}
+    {{ if gt $i 0 }}{{ $prev = index $sorted (sub $i 1) }}{{ end }}
+    {{ if lt $i (sub (len $sorted) 1) }}{{ $next = index $sorted (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
 <section class="single-page">
   <div class="deco deco-left">
     <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物">
@@ -18,6 +28,11 @@
     <div class="content">
       {{ .Content }}
     </div>
+    <nav class="post-nav">
+      {{ with $prev }}<a class="post-nav-prev" href="{{ .RelPermalink }}">← 上一篇：{{ .Title }}</a>{{ end }}
+      {{ with $next }}<a class="post-nav-next" href="{{ .RelPermalink }}">下一篇：{{ .Title }} →</a>{{ end }}
+    </nav>
+    <div class="article-end-spacer" aria-hidden="true"></div>
   </article>
   <div class="deco deco-right">
     <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物">

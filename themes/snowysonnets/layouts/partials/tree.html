@@ -9,7 +9,7 @@
     {{ partial "tree.html" . }}
   </li>
   {{ end }}
-  {{ range $section.RegularPages }}
+  {{ range $section.RegularPages.ByDate }}
   <li class="tree-item tree-file" data-title="{{ .Title }}">
     <a class="tree-row file-row" href="{{ .RelPermalink }}">
       <span class="tree-file-icon" aria-hidden="true">-</span>

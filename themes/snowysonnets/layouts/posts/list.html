@@ -2,8 +2,14 @@
 {{ if eq .File.Path "posts/_index.md" }}
 <section class="library" id="library">
   <img class="book-bg" src="{{ "img/book.png" | relURL }}" alt="" aria-hidden="true">
-  <img class="mobile-little mobile-little-left" src="{{ "img/little_Es2.png" | relURL }}" alt="" aria-hidden="true">
-  <img class="mobile-little mobile-little-right" src="{{ "img/little_Es3.png" | relURL }}" alt="" aria-hidden="true">
+  <div class="mobile-little mobile-little-left" aria-hidden="true">
+    <div class="mini-bubble">今天想要看什么呢？</div>
+    <img src="{{ "img/little_Es2.png" | relURL }}" alt="">
+  </div>
+  <div class="mobile-little mobile-little-right" aria-hidden="true">
+    <div class="mini-bubble mini-bubble-right">这里很安静。<br>只有我们两个哦……</div>
+    <img src="{{ "img/little_Es3.png" | relURL }}" alt="">
+  </div>
   <div class="deco deco-left">
     <div class="speech-bubble"><span>今天想要看什么呢？</span></div>
     <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物">
@@ -58,7 +64,7 @@
     {{ end }}
     <h2>文章</h2>
     <ul class="article-list">
-      {{ range .RegularPagesRecursive }}
+      {{ range .RegularPagesRecursive.ByDate }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
