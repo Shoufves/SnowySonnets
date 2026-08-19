@@ -365,7 +365,7 @@ h3,
 
 .speech-bubble {
   position: absolute;
-  top: 0;
+  top: -40px;
   left: 120px;
   width: 300px;
   min-height: 140px;
@@ -385,7 +385,8 @@ h3,
 
 .speech-bubble-right {
   left: auto;
-  right: 20px;
+  right: 180px;
+  top: -80px;
   background-image: url("../img/bubble_frame_opposite.png");
 }
 

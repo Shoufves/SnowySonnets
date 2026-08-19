@@ -186,3 +186,8 @@
 - 新增右侧 `bubble_frame_opposite.png` 气泡，文字：这里很安静。只有我们两个哦……
 - 桌面端 library 高度固定为 `calc(100vh - 60px)`，尝试修复 Ctrl+F5 后布局错乱问题。
 - 移动端 book.png 缩小为 85vw、半透明。
+
+## 2026-01-01 气泡位置微调
+
+- 左侧 bubble_frame 上移（top: -40px）。
+- 右侧 bubble_frame_opposite 向左上大幅移动（top: -80px, right: 180px）。
