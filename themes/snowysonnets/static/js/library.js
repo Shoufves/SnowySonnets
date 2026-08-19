@@ -85,12 +85,31 @@
     articleBreadcrumb.textContent = parts.join(" / ");
   }
 
+  function setActivePath(list) {
+    if (!tree || !list) return;
+    // 收集从根到当前 list 的所有祖先 tree-list
+    var chain = [];
+    var el = list;
+    while (el && el !== tree) {
+      if (el.classList && el.classList.contains("tree-list")) {
+        chain.unshift(el);
+      }
+      el = el.parentElement;
+    }
+    // 只保留路径上的 active，避免隐藏祖先导致子列表不可见
+    Array.prototype.forEach.call(tree.querySelectorAll(".tree-list.active"), function (item) {
+      if (chain.indexOf(item) === -1) {
+        item.classList.remove("active");
+      }
+    });
+    chain.forEach(function (item) {
+      item.classList.add("active");
+    });
+  }
+
   function showMobileList(list, title) {
     if (!tree) return;
-    Array.prototype.forEach.call(tree.querySelectorAll(".tree-list.active"), function (el) {
-      el.classList.remove("active");
-    });
-    if (list) list.classList.add("active");
+    setActivePath(list);
     mobileStack = mobileStack.slice(0, mobileStack.length);
     if (title && mobileStack.length) {
       mobileStack[mobileStack.length - 1].title = title;

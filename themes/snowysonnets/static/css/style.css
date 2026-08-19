@@ -369,8 +369,8 @@ h3,
 
 .speech-bubble {
   position: absolute;
-  top: -40px;
-  left: 120px;
+  top: -55px;
+  left: 105px;
   width: 300px;
   min-height: 140px;
   padding: 34px 22px 42px;
@@ -1229,8 +1229,8 @@ h3,
 
   .mini-bubble {
     position: absolute;
-    bottom: 50px;
-    left: 70px;
+    bottom: 60px;
+    left: 60px;
     width: 130px;
     padding: 12px 10px 16px;
     color: #fff;
