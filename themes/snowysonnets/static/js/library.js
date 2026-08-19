@@ -18,7 +18,9 @@
     return window.matchMedia("(max-width: 1023px)").matches;
   };
 
-  var rootList = tree ? tree.querySelector(":scope > .tree-list") : null;
+  var rootList = tree
+    ? tree.querySelector(":scope > .tree-list") || tree.querySelector(".tree-list")
+    : null;
   // mobileStack 保存移动端目录层级，最后一项是当前显示的层级
   var mobileStack = rootList ? [{ title: "根目录", list: rootList }] : [];
   var returnList = null; // 移动端打开文章时所在目录层级
@@ -97,7 +99,7 @@
   }
 
   function enterMobileDirectory(li) {
-    var childList = li.querySelector(":scope > .tree-list");
+    var childList = li.querySelector(":scope > .tree-list") || li.querySelector(".tree-list");
     if (!childList) return;
     var dirTitle = li.getAttribute("data-title") || "目录";
     mobileStack.push({ title: dirTitle, list: childList });

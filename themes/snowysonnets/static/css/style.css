@@ -1229,12 +1229,12 @@ h3,
 
   .mini-bubble {
     position: absolute;
-    bottom: 20px;
+    bottom: 50px;
     left: 70px;
-    width: 110px;
-    padding: 10px 8px 14px;
+    width: 130px;
+    padding: 12px 10px 16px;
     color: #fff;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.3;
     text-align: center;
     background-image: url("../img/bubble_frame.png");

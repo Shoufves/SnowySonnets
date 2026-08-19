@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ if eq .File.Path "posts/_index.md" }}
 <section class="library" id="library">
-  <img class="book-bg" src="{{ "img/book.png" | relURL }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <img class="book-bg" src="{{ "img/book.png" | relURL }}" alt="" aria-hidden="true" decoding="async">
   <div class="mobile-little mobile-little-left" aria-hidden="true">
     <div class="mini-bubble">今天想要看什么呢？</div>
     <img src="{{ "img/little_Es2.png" | relURL }}" alt="" loading="lazy" decoding="async">
@@ -12,7 +12,7 @@
   </div>
   <div class="deco deco-left">
     <div class="speech-bubble"><span>今天想要看什么呢？</span></div>
-    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物" loading="lazy" decoding="async">
+    <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物" decoding="async">
   </div>
 
   <div class="library-shell">
@@ -41,7 +41,7 @@
 
   <div class="deco deco-right">
     <div class="speech-bubble speech-bubble-right"><span>这里很安静。<br>只有我们两个哦……</span></div>
-    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物" loading="lazy" decoding="async">
+    <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物" decoding="async">
   </div>
 </section>
 {{ else }}
