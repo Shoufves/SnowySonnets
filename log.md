@@ -173,3 +173,16 @@
   SnowySonnets / 月融雪Snowmelt的文章存储站 / 在书柜与文字之间，收藏属于你的故事。 / ——欢迎回来，旅人。 / little_Es4 / 进入文章库
 - 字体策略：@font-face 增加 unicode-range，英文与日文假名使用 ttf，中文回退到微软雅黑。
 - 分类、标签、搜索、分类详情页增加“← 返回”按钮。
+
+## 2026-01-01 新素材整理
+
+- 发现用户新增的 `book.png` 与 `bubble_frame_opposite.png` 位于 `public/img/`（构建产物目录，会被 Git 忽略）。
+- 已移动到 `static/img/`，确保提交后 Hugo 能正确打包。
+
+## 2026-01-01 新增素材与布局补充
+
+- 左侧气泡继续向右上移动（left 120px, top 0）。
+- 新增 `book.png` 作为文章库中间背景，尺寸比目录面板大一圈。
+- 新增右侧 `bubble_frame_opposite.png` 气泡，文字：这里很安静。只有我们两个哦……
+- 桌面端 library 高度固定为 `calc(100vh - 60px)`，尝试修复 Ctrl+F5 后布局错乱问题。
+- 移动端 book.png 缩小为 85vw、半透明。
