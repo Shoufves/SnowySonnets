@@ -20,7 +20,7 @@
   --bubble-bg: #3a3a3a;
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   --radius: 14px;
-  --font-display: "Zyqs06el", "KaiTi", "STKaiti", serif;
+  --font-display: "Zyqs06el", "Noto Serif SC", "Source Han Serif SC", "KaiTi", "STKaiti", "Microsoft YaHei", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -255,6 +255,8 @@ h3,
   display: flex;
   align-items: stretch;
   gap: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
 .deco {
@@ -280,6 +282,37 @@ h3,
 
 .deco-left img {
   align-self: flex-end;
+}
+
+/* 文章库内的 Es 人物：紧贴左下角/右下角并放大 */
+.library .deco {
+  position: absolute;
+  bottom: 0;
+  width: 320px;
+  height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.library .deco img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.library .deco-left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.library .deco-right {
+  right: 0;
+  justify-content: flex-end;
 }
 
 .speech-bubble {
@@ -309,6 +342,7 @@ h3,
   align-items: stretch;
   gap: 18px;
   position: relative;
+  z-index: 1;
 }
 
 .directory-pane {
@@ -321,7 +355,7 @@ h3,
   padding: 18px;
   overflow-y: auto;
   max-height: calc(100vh - 120px);
-  transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
+  transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease), margin-left var(--duration) var(--ease);
 }
 
 .directory-header {
@@ -600,14 +634,18 @@ h3,
 
 /* 文章库打开文章后的状态 */
 
-.library.article-open .directory-pane {
-  transform: translateX(-40px);
-  opacity: 0.92;
-}
-
 .library.article-open .article-pane {
   transform: translateX(0);
   opacity: 1;
+}
+
+/* 桌面端：文章打开后目录更大幅度左移，让文章区获得更多空间 */
+@media (min-width: 1024px) {
+  .library.article-open .directory-pane {
+    margin-left: -140px;
+    transform: translateX(-20px);
+    opacity: 1;
+  }
 }
 
 /* ============ 分类页、标签页、搜索页 ============ */
@@ -852,7 +890,8 @@ h3,
 
 @media (max-width: 1280px) {
   .deco {
-    width: 170px;
+    width: 220px;
+    height: 60vh;
   }
 
   .speech-bubble {

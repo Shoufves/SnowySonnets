@@ -146,3 +146,11 @@
 - 将 `baseof.html` 移动到标准位置 `layouts/_default/baseof.html`，并删除旧的根目录 `layouts/baseof.html`。
 
 - 更新 `.gitignore`：忽略 `.hugo_build.lock`。
+
+## 2026-01-01 桌面版视觉与交互修复
+
+- Es 人物贴图调整：文章库内 Es_left/Es_sit 改为绝对定位于左下角/右下角，宽度/高度加大，紧贴底部。
+- 字体回退栈增加 Noto Serif SC / Source Han Serif SC / Microsoft YaHei，缓解部分字体缺失。
+- 单篇文章页的“← 返回文章库”移出 `#article-body`，避免在文章库内与“← 返回”重复。
+- 文章库打开文章后，目录面板左移幅度从 40px 增大到 140px，并让文章区获得更多空间。
+- 修正单篇文章页标签链接为 `RelPermalink`。

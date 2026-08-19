@@ -10,7 +10,7 @@
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
         {{ with .Params.tags }}
         <span class="tags">
-          {{ range . }}<a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
+          {{ range . }}<a class="tag" href="{{ (site.GetPage "/tags").RelPermalink }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
         </span>
         {{ end }}
       </div>
@@ -18,10 +18,10 @@
     <div class="content">
       {{ .Content }}
     </div>
-    <div class="post-back">
-      <a href="{{ (site.GetPage "/posts").RelPermalink }}">← 返回文章库</a>
-    </div>
   </article>
+  <div class="post-back">
+    <a href="{{ (site.GetPage "/posts").RelPermalink }}">← 返回文章库</a>
+  </div>
   <div class="deco deco-right">
     <img src="{{ "img/Es_sit.png" | relURL }}" alt="Es 右侧人物">
   </div>
