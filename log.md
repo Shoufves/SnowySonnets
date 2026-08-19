@@ -139,3 +139,10 @@
 
 - 用户反馈 `/posts/` 页面源码几乎为空。
 - 将 `posts/list.html`、`search.html`、`404.html` 改为单 `define "main"` 结构，脚本直接放入 main 内容中，避免多 `define` 可能导致的空输出问题。
+
+## 2026-01-01 0 字节空白页根因修复
+
+- 定位到 `/posts/` 返回 0 字节：Hugo 渲染 section 页面时没有找到根目录 `layouts/baseof.html`。
+- 将 `baseof.html` 移动到标准位置 `layouts/_default/baseof.html`，并删除旧的根目录 `layouts/baseof.html`。
+
+- 更新 `.gitignore`：忽略 `.hugo_build.lock`。
