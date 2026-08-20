@@ -563,6 +563,12 @@ h3,
   animation: fadeSlideIn 0.4s var(--ease);
 }
 
+.article-breadcrumb-bar {
+  flex-shrink: 0;
+  order: 0;
+  padding: 0 0 8px;
+}
+
 .article-topbar {
   display: flex;
   align-items: center;
@@ -613,6 +619,10 @@ h3,
 
 /* 桌面端：文章顶栏移到正文下方，形成“左下角返回”，并固定在可视区域底部 */
 @media (min-width: 1024px) {
+  .article-breadcrumb-bar {
+    display: none;
+  }
+
   .article-topbar {
     order: 2;
     margin-top: 16px;
@@ -841,8 +851,10 @@ h3,
 .library.article-open .speech-bubble,
 .library.mobile-article-open .mobile-little,
 .library.mobile-article-open .mini-bubble {
+  animation: none;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s var(--ease);
 }
 
 /* 桌面端：文章库为居中的“手机尺寸”双面板 */
@@ -1395,7 +1407,7 @@ h3,
 
   .mobile-little-right .mini-bubble {
     left: auto;
-    right: 70px;
+    right: 45px;
   }
 
   .mini-bubble-right {

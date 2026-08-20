@@ -30,13 +30,15 @@
         <img class="little-es" src="{{ "img/little_Es1.png" | relURL }}" alt="little Es" loading="lazy" decoding="async">
       </div>
       <div class="article-view" id="article-view" hidden>
+        <div class="article-breadcrumb-bar" id="article-breadcrumb-bar">
+          <div class="breadcrumb" id="article-breadcrumb" aria-live="polite"></div>
+        </div>
+        <article id="article-body" class="article-body"></article>
         <div class="article-topbar" id="article-topbar">
           <button class="back-btn" id="back-btn" type="button" aria-label="返回目录">← 返回</button>
-          <div class="breadcrumb" id="article-breadcrumb" aria-live="polite"></div>
           <span class="reading-progress" id="reading-progress">0%</span>
           <button class="bookmark-btn" id="bookmark-btn" type="button" aria-label="添加书签" title="添加书签">🔖</button>
         </div>
-        <article id="article-body" class="article-body"></article>
       </div>
     </section>
   </div>

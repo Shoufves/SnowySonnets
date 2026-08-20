@@ -190,10 +190,11 @@
     if (history.pushState) {
       history.pushState({ articleUrl: null }, "", window.location.pathname);
     }
-    if (isMobile() && returnList) {
-      showMobileList(returnList);
-      returnList = null;
+    if (isMobile() && mobileStack.length) {
+      var last = mobileStack[mobileStack.length - 1];
+      showMobileList(last.list, last.title);
     }
+    returnList = null;
   }
 
   function escapeHtml(str) {
@@ -334,10 +335,11 @@
       openArticle(state.articleUrl);
     } else {
       hideArticlePane();
-      if (isMobile() && returnList) {
-        showMobileList(returnList);
-        returnList = null;
+      if (isMobile() && mobileStack.length) {
+        var last = mobileStack[mobileStack.length - 1];
+        showMobileList(last.list, last.title);
       }
+      returnList = null;
     }
   });
 
