@@ -294,6 +294,39 @@
     );
   }
 
+  // 从书签进入：先回到文章库，再打开对应文章并恢复阅读进度
+  function restoreBookmarkFromHash() {
+    var m = window.location.hash.match(/^#bookmark-(\d+)$/);
+    if (!m) return;
+    var list = [];
+    try {
+      list = JSON.parse(localStorage.getItem("snowysonnets_bookmarks_v1") || "[]");
+    } catch (e) {
+      list = [];
+    }
+    var bm = list.filter(function (b) {
+      return String(b.id) === m[1];
+    })[0];
+    if (!bm) return;
+
+    openArticle(bm.url, bm.name);
+
+    var timer = setInterval(function () {
+      if (!loading && articleBody && articleBody.querySelector("h1")) {
+        clearInterval(timer);
+        var max = articlePane.scrollHeight - articlePane.clientHeight;
+        articlePane.scrollTop = Math.max(0, max * (bm.progress || 0));
+        var prog = document.getElementById("reading-progress");
+        if (prog) prog.textContent = Math.round((bm.progress || 0) * 100) + "%";
+      }
+    }, 100);
+
+    // 清除 hash，避免刷新后再次触发
+    if (history.replaceState) {
+      history.replaceState(null, "", window.location.pathname);
+    }
+  }
+
   // 浏览器前进/后退
   window.addEventListener("popstate", function (e) {
     var state = e.state;
@@ -314,4 +347,7 @@
   } else if (breadcrumb) {
     breadcrumb.innerHTML = "";
   }
+
+  // 从书签进入时恢复文章与进度
+  restoreBookmarkFromHash();
 })();

@@ -94,6 +94,8 @@
       listEl.innerHTML = '<p class="search-empty">还没有书签。</p>';
       return;
     }
+    var page = document.getElementById("bookmarks-page");
+    var libraryUrl = page ? page.getAttribute("data-library-url") || "/posts/" : "/posts/";
     var html = list
       .slice()
       .reverse()
@@ -102,7 +104,7 @@
         return (
           '<div class="bookmark-item">' +
           '<a class="bookmark-link" href="' +
-          escapeHtml(bm.url) +
+          escapeHtml(libraryUrl) +
           '#bookmark-' +
           bm.id +
           '">' +
@@ -135,6 +137,8 @@
   }
 
   function restoreFromHash() {
+    // 文章库页面的书签恢复由 library.js 处理，避免双重滚动
+    if (document.getElementById("library")) return;
     var m = window.location.hash.match(/^#bookmark-(\d+)$/);
     if (!m) return;
     var id = parseInt(m[1], 10);
