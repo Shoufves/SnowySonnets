@@ -120,6 +120,11 @@
   function enterMobileDirectory(li) {
     var childList = li.querySelector(":scope > .tree-list") || li.querySelector(".tree-list");
     if (!childList) return;
+    // 如果这个目录已经在当前路径中，再次点击就收起，避免面包屑重复
+    if (childList.classList.contains("active")) {
+      leaveMobileDirectory();
+      return;
+    }
     var dirTitle = li.getAttribute("data-title") || "目录";
     mobileStack.push({ title: dirTitle, list: childList });
     showMobileList(childList, dirTitle);
@@ -148,6 +153,7 @@
 
     loading = true;
     currentArticleUrl = url;
+    if (articlePane) articlePane.dataset.currentUrl = url;
     articleBody.innerHTML = '<p class="search-empty">加载中…</p>';
     showArticlePane();
 

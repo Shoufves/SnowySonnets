@@ -10,6 +10,7 @@
       {{ with site.GetPage "/categories" }}<li><a href="{{ .RelPermalink }}">分类</a></li>{{ end }}
       {{ with site.GetPage "/tags" }}<li><a href="{{ .RelPermalink }}">标签</a></li>{{ end }}
       {{ with site.GetPage "/search" }}<li><a href="{{ .RelPermalink }}">搜索</a></li>{{ end }}
+      {{ with site.GetPage "/bookmarks" }}<li><a href="{{ .RelPermalink }}">书签</a></li>{{ end }}
       {{ with site.GetPage "/about" }}<li><a href="{{ .RelPermalink }}">关于</a></li>{{ end }}
     </ul>
   </nav>

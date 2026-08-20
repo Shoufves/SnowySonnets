@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="page paper-panel bookmarks-page" id="bookmarks-page">
+  <button class="back-btn" type="button" onclick="history.back()">← 返回</button>
+  <h1>书签</h1>
+  <p class="bookmarks-hint">书签保存在当前浏览器本地，换设备/浏览器不会同步。</p>
+  <div id="bookmarks-list" class="bookmarks-list"></div>
+</section>
+<script src="{{ "js/bookmarks.js" | relURL }}" defer></script>
+{{ end }}

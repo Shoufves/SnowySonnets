@@ -389,7 +389,7 @@ h3,
 
 .speech-bubble-right {
   left: auto;
-  right: 180px;
+  right: 160px;
   top: -80px;
   background-image: url("../img/bubble_frame_opposite.png");
 }
@@ -568,7 +568,14 @@ h3,
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
+  order: 2;
+  position: sticky;
+  bottom: 16px;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 10px;
+  border-radius: 999px;
 }
 
 .article-topbar .breadcrumb {
@@ -579,6 +586,7 @@ h3,
 
 .article-view .article-body {
   flex: 1;
+  order: 1;
 }
 
 .back-btn {
@@ -738,11 +746,103 @@ h3,
   }
 }
 
+.reading-progress {
+  font-size: 12px;
+  color: var(--gray);
+  margin-left: auto;
+}
+
+.bookmark-btn {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.bookmark-btn:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.single-bookmark {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 5;
+}
+
+.single-progress {
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  z-index: 5;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.bookmarks-list {
+  margin-top: 16px;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.bookmark-link {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.bookmark-delete {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.bookmark-delete:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #000;
+}
+
 /* 文章库打开文章后的状态 */
 
 .library.article-open .article-pane {
   transform: translateX(0);
   opacity: 1;
+}
+
+/* 打开文章时装饰贴图淡出，返回目录时淡入 */
+.library .deco,
+.speech-bubble,
+.mobile-little,
+.mini-bubble {
+  transition: opacity 0.4s var(--ease);
+}
+
+.library.article-open .deco,
+.library.article-open .speech-bubble,
+.library.mobile-article-open .mobile-little,
+.library.mobile-article-open .mini-bubble {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* 桌面端：文章库为居中的“手机尺寸”双面板 */
@@ -821,6 +921,45 @@ h3,
 
   .site-footer p {
     margin: 2px 0;
+  }
+}
+
+/* ============ 单篇文章页 ============ */
+
+.single-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+.single-page .article-body {
+  flex: 1;
+  min-width: 0;
+  max-width: 860px;
+}
+
+.single-back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 5;
+}
+
+@media (max-width: 1023px) {
+  .single-page {
+    display: block;
+    padding: 16px;
+  }
+
+  .single-back {
+    position: static;
+    margin-bottom: 16px;
   }
 }
 
@@ -998,6 +1137,16 @@ h3,
   background: rgba(26, 26, 26, 0.55);
 }
 
+.error-code {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-size: 44px;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  margin: 0 0 4px;
+}
+
 .error-text {
   position: relative;
   z-index: 3;
@@ -1128,6 +1277,8 @@ h3,
 
   .site-footer p {
     margin: 1px 0;
+    white-space: nowrap;
+    font-size: 9px;
   }
 
   .site-header {
@@ -1362,6 +1513,10 @@ h3,
 
   .paper-panel {
     padding: 22px;
+  }
+
+  .error-code {
+    font-size: 32px;
   }
 
   .error-text {

@@ -10,6 +10,9 @@
   {{ end }}
 {{ end }}
 <section class="single-page">
+  <button class="back-btn single-back" type="button" onclick="history.back()">← 返回</button>
+  <button class="bookmark-btn single-bookmark" id="bookmark-btn" type="button" aria-label="添加书签" title="添加书签">🔖</button>
+  <span class="reading-progress single-progress" id="reading-progress">0%</span>
   <div class="deco deco-left">
     <img src="{{ "img/Es_left1.png" | relURL }}" alt="Es 左侧人物" decoding="async">
   </div>
