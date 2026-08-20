@@ -1454,6 +1454,11 @@ h3,
     pointer-events: none;
   }
 
+  .library.mobile-article-open .library-shell {
+    height: calc(100vh - 130px);
+    margin: 60px auto 30px;
+  }
+
   .library.mobile-article-open .directory-pane {
     transform: translateX(-100%);
     opacity: 0;
@@ -1495,6 +1500,10 @@ h3,
 
   .article-pane {
     padding: 18px 18px 80px;
+  }
+
+  .article-topbar {
+    bottom: 6px;
   }
 
   .article-body h1 {
